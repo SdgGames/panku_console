@@ -1,7 +1,7 @@
 class_name PankuModuleInteractiveShell extends PankuModule
 
 var window:PankuLynxWindow
-var interactive_shell:Control
+var interactive_shell:PankuConsoleUI
 var simple_launcher:Control
 
 enum InputMode {
