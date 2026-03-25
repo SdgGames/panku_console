@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c8x4mflags001"]
+
+[ext_resource type="Script" path="res://addons/panku_console/modules/data_controller/exporter/row_ui_flags.gd" id="1_flags"]
+
+[node name="RowFlags" type="HBoxContainer" node_paths=PackedStringArray("flags_container")]
+script = ExtResource("1_flags")
+flags_container = NodePath("FlagsContainer")
+
+[node name="VName" type="Label" parent="."]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "flags"
+
+[node name="FlagsContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3

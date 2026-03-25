@@ -67,6 +67,9 @@ func create_rows_from_object(index:int):
 			elif d.type == TYPE_INT and d.hint == PROPERTY_HINT_ENUM:
 				row_types.append("enum")
 				rows.append(create_ui_row_enum(d))
+			elif d.type == TYPE_INT and d.hint == PROPERTY_HINT_FLAGS:
+				row_types.append("flags")
+				rows.append(create_ui_row_flags(d))
 			else:
 				row_types.append("read_only")
 				rows.append(create_ui_row_read_only(d))
@@ -182,6 +185,11 @@ func create_ui_row_color(property:Dictionary) -> Control:
 func create_ui_row_enum(property:Dictionary) -> Control:
 	var ui_row = preload("./row_enum.tscn").instantiate()
 	ui_row.setup(property.hint_string.split(",", false))
+	return init_ui_row(ui_row, property)
+
+func create_ui_row_flags(property:Dictionary) -> Control:
+	var ui_row = preload("./row_flags.tscn").instantiate()
+	ui_row.setup(property.hint_string)
 	return init_ui_row(ui_row, property)
 
 func create_ui_row_read_only(property:Dictionary) -> Control:
